@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { uploadPDF } from '../services/api';
 
+import toast from 'react-hot-toast';
+
 export default function UploadSection() {
   const [loading, setLoading] = useState(false);
   const [uploadedFile, setUploadedFile] = useState('');
@@ -18,9 +20,12 @@ export default function UploadSection() {
       console.log(result);
 
       setUploadedFile(result.filename);
+
+      toast.success('PDF uploaded successfully');
     } catch (error) {
       console.error(error);
-      alert('Upload failed');
+
+      toast.error('Upload failed');
     } finally {
       setLoading(false);
     }
