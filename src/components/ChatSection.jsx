@@ -34,9 +34,9 @@ export default function ChatSection({ messages, setMessages }) {
   };
 
   return (
-    <div className="flex flex-col h-screen">
+    <div className="flex flex-col h-full min-h-0">
       {/* Messages */}
-      <div className="flex-1 overflow-y-auto p-6 space-y-4">
+      <div className="flex-1 overflow-y-auto p-4 sm:p-6 space-y-4 min-h-0">
         {messages.map((msg, index) => (
           <MessageBubble key={index} message={msg} />
         ))}
@@ -45,7 +45,7 @@ export default function ChatSection({ messages, setMessages }) {
       </div>
 
       {/* Input */}
-      <div className="border-t border-slate-800 p-4 flex gap-3">
+      <div className="border-t border-slate-800 p-4 flex gap-3 flex-col sm:flex-row">
         <input
           value={question}
           onChange={e => setQuestion(e.target.value)}
@@ -55,12 +55,24 @@ export default function ChatSection({ messages, setMessages }) {
             }
           }}
           placeholder="Ask about your PDF..."
-          className="flex-1 bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 outline-none"
+          className="
+  flex-1 
+  w-full
+  bg-slate-900 
+  border border-slate-700 
+  rounded-xl 
+  px-4 py-3 
+  outline-none
+"
         />
 
         <button
           onClick={sendQuestion}
-          className="bg-blue-600 hover:bg-blue-700 px-5 rounded-xl"
+          className="
+    bg-blue-600 hover:bg-blue-700 
+    px-5 py-3 rounded-xl
+    w-full sm:w-auto
+  "
         >
           Send
         </button>
