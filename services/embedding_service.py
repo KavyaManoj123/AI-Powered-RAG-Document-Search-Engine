@@ -1,27 +1,35 @@
-from sentence_transformers import SentenceTransformer
-import os
+# from sentence_transformers import SentenceTransformer
+# import os
 
-os.environ["TOKENIZERS_PARALLELISM"] = "false"
+# os.environ["TOKENIZERS_PARALLELISM"] = "false"
 
-model = None
+# model = None
 
-def get_model():
-    global model
+# def get_model():
+#     global model
 
-    if model is None:
-        model = SentenceTransformer(
-            "sentence-transformers/paraphrase-MiniLM-L3-v2",
-            device="cpu"
-        )
+#     if model is None:
+#         model = SentenceTransformer(
+#             "sentence-transformers/paraphrase-MiniLM-L3-v2",
+#             device="cpu"
+#         )
 
-    return model
+#     return model
+
+
+# def create_embedding(text):
+#     embedding_model = get_model()
+#     return embedding_model.encode(text).tolist()
+
+
+# def create_embeddings(chunks):
+#     embedding_model = get_model()
+#     return embedding_model.encode(chunks).tolist()
 
 
 def create_embedding(text):
-    embedding_model = get_model()
-    return embedding_model.encode(text).tolist()
+    return [0.0]
 
 
 def create_embeddings(chunks):
-    embedding_model = get_model()
-    return embedding_model.encode(chunks).tolist()
+    return [[0.0] for _ in chunks]
