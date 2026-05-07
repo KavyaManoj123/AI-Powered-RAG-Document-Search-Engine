@@ -238,7 +238,7 @@ Deployed on Render
 
 # 📸 Screenshots
 
-![AI Search Engine](./assets/homeUI.png)
+![AI Search Engine](src/assets/homeUI.png)
 
 
 ---
