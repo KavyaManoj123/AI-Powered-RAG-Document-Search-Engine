@@ -2,7 +2,8 @@ from fastapi import APIRouter
 from services.llm_service import generate_answer
 
 # import uploaded chunks from upload route
-from routes.upload_routes import uploaded_chunks
+# from routes.upload_routes import uploaded_chunks
+from services.memory_store import uploaded_chunks
 
 router = APIRouter()
 

@@ -2,6 +2,7 @@ from fastapi import APIRouter, UploadFile, File
 import os
 
 from services.pdf_service import extract_text_from_pdf, create_chunks
+from services.memory_store import uploaded_chunks
 
 router = APIRouter()
 
@@ -11,7 +12,7 @@ UPLOAD_DIR = "uploads"
 os.makedirs(UPLOAD_DIR, exist_ok=True)
 
 # temporary memory storage
-uploaded_chunks = []
+# uploaded_chunks = []
 
 @router.post("/upload-pdf")
 async def upload_pdf(file: UploadFile = File(...)):
