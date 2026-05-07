@@ -12,7 +12,7 @@ def store_embeddings(file_name, chunks, vectors):
 
         collection.add(
             ids=[f"{file_name}_{index}"],
-            embeddings=[vectors[index].tolist()],
+            embeddings=[vectors[index]],
             documents=[chunk],
             metadatas=[{"source": file_name}]
         )

@@ -1,9 +1,27 @@
 from sentence_transformers import SentenceTransformer
+import os
 
-model = SentenceTransformer("all-MiniLM-L6-v2")
+os.environ["TOKENIZERS_PARALLELISM"] = "false"
+
+model = None
+
+def get_model():
+    global model
+
+    if model is None:
+        model = SentenceTransformer(
+            "sentence-transformers/paraphrase-MiniLM-L3-v2",
+            device="cpu"
+        )
+
+    return model
+
 
 def create_embedding(text):
-    return model.encode(text).tolist()
+    embedding_model = get_model()
+    return embedding_model.encode(text).tolist()
+
 
 def create_embeddings(chunks):
-    return model.encode(chunks)
+    embedding_model = get_model()
+    return embedding_model.encode(chunks).tolist()
