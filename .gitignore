@@ -1,3 +1,18 @@
-.env
+# Python
 __pycache__/
+*.pyc
+
+# Environment
+.env
+
+# Uploads
 uploads/
+
+# Vector DB
+chroma_db/
+
+# Venv
+venv/
+
+# OS
+.DS_Store
